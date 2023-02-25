@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAccount, useBalance, useConnect, useEnsName } from 'wagmi'
-import { Loader, Button } from '../components';
+import { Loader, Button, Layout } from '../components';
 
 export default function Home() {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -47,8 +47,15 @@ export default function Home() {
   };
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Layout
+        showWalletOptions={showWalletOptions}
+        setShowWalletOptions={setShowWalletOptions}
+      >
+        <div className="grid h-screen place-items-center">
+          <div className="grid place-items-center">{renderContent()}</div>
+        </div>
+      </Layout>
+    </>
   )
 }
