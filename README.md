@@ -39,10 +39,10 @@ To learn more about the packages used in this project, take a look at the follow
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [React Typescript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/) - helpful tips for using Typescript with React.
-- [wagmi Documentation](https://wagmi-xyz.vercel.app/) - learn about the wagmi React hooks for Ethereum.
+- [wagmi Documentation](https://wagmi.sh/) - learn about the wagmi React hooks for Ethereum.
 - [Tailwind CSS Documentation](https://tailwindcss.com/) - learn about the Tailwind CSS styling framework.
 
-## Deploy on Vercel
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FsoftTalents%2FNextJS_Wagmi_Template&env=NEXT_PUBLIC_ALCHEMY_KEY)
+## Deploy on Netlify
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/softTalents/NextJS_Wagmi_Template)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://www.netlify.com/).
