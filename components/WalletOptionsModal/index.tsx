@@ -35,24 +35,25 @@ export default function WalletOptionsModal(props: Props) {
               </h3>
             </div>
 
-            { connectors.map((c) => (
-              <div key={c.id} className="mb-2 ml-2 mr-2 w-80">
+            { connectors.map((connector) => (
+              <div key={connector.id} className="mb-2 ml-2 mr-2 w-80">
                 <Button
                   loading={connectDataLoading}
                   width={80}
-                  disabled={!c.ready}
-                  onClick={() => connect({connector: c, chainId: goerli.id})}
+                  disabled={!connector.ready}
+                  key={connector.id}
+                  onClick={() => connect({ connector })}
                 >
                   <>
                     <div className="mr-3">
                       <Image
-                        src={`/images/${c.id}.svg`}
-                        alt={c.name}
+                        src={`/images/${connector.id}.svg`}
+                        alt={connector.name}
                         height={32}
                         width={32}
                       />
                     </div>
-                    {`${c.name}${!c.ready ? " (unsupported)" : ""}`}
+                    {`${connector.name}${!connector.ready ? " (unsupported)" : ""}`}
                   </>
                 </Button>
               </div>
