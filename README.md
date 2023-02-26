@@ -6,7 +6,7 @@ This project was inspired from [Seth Mckilla's excellent Wagmi Temlate](https://
 
 ## Introduction
 Looking to get up and running with a Typescript / NextJS dApp as quickly as possible? You're in the right place! This repo serves as a minimal template for integrating the wagmi React hooks for Ethereum library with Typescript & NextJS. Due to its ease of customizability and extensibility, this template has been styled with the Tailwind CSS framework. Let's get to it!
-### Check out the live demo 👉 [NextJS wagmi](https://nextjs-wagmi.vercel.app/)
+### Check out the live demo 👉 [NextJS wagmi](https://wagmian.netlify.app/)
 
 ## Get up and running in 3 simple steps:
 
@@ -45,4 +45,4 @@ To learn more about the packages used in this project, take a look at the follow
 ## Deploy on Netlify
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/softTalents/NextJS_Wagmi_Template)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://www.netlify.com/).
+The easiest way to deploy your Next.js app is to use the [netlify Platform](https://www.netlify.com/).
