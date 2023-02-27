@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAccount, useBalance, useConnect, useEnsName } from 'wagmi'
 import { Loader, Button, Layout } from '../components';
+import { HydrationProvider, Server, Client } from "react-hydration-provider";
 
 export default function Home() {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -16,7 +17,23 @@ export default function Home() {
 
   const loading = (accountLoading || isLoading) && !balanceData;
 
-  const renderContent = () => {
+  const renderContentOnServer = () => {
+    return (
+      <>
+        <h1 className="mb-8 text-4xl font-bold">
+          Welcome to the NextJS wagmi template!
+        </h1>
+        <Button
+          loading={accountLoading}
+          onClick={() => setShowWalletOptions(true)}
+        >
+          Connect to Wallet
+        </Button>
+      </>
+    );
+  };
+
+  const renderContentOnClient = () => {
     if (loading) return <Loader size={8} />;
     if (balanceData) {
       return (
@@ -47,15 +64,20 @@ export default function Home() {
   };
 
   return (
-    <>
+    <HydrationProvider>
       <Layout
         showWalletOptions={showWalletOptions}
         setShowWalletOptions={setShowWalletOptions}
       >
         <div className="grid h-screen place-items-center">
-          <div className="grid place-items-center">{renderContent()}</div>
+          <Server>
+            <div className="grid place-items-center">{renderContentOnServer()}</div>
+          </Server>
+          <Client>
+            <div className="grid place-items-center">{renderContentOnClient()}</div>
+          </Client>
         </div>
       </Layout>
-    </>
+    </HydrationProvider>
   )
 }
