@@ -18,18 +18,18 @@ export default function Home() {
 
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
-    if (balanceData) {
-      return (
-        <>
-          <h1 className="mb-8 text-4xl font-bold">My Wallet</h1>
-          <div className="inline-flex place-items-center">
-            <h6 className="ml-2 text-2xl">{`Ξ ${Number(
-              balanceData?.formatted
-            ).toFixed(4)} ${balanceData?.symbol}`}</h6>
-          </div>
-        </>
-      );
-    }
+    // if (balanceData) {
+    //   return (
+    //     <>
+    //       <h1 className="mb-8 text-4xl font-bold">My Wallet</h1>
+    //       <div className="inline-flex place-items-center">
+    //         <h6 className="ml-2 text-2xl">{`Ξ ${Number(
+    //           balanceData?.formatted
+    //         ).toFixed(4)} ${balanceData?.symbol}`}</h6>
+    //       </div>
+    //     </>
+    //   );
+    // }
 
     return (
       <>

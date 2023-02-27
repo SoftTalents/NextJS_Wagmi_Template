@@ -63,14 +63,14 @@ export default function Layout(props: Props) {
     };
   
     const renderButton = () => {
-      if (address) {
-        return (
-          <MenuDropdown
-            label={renderLabel()}
-            options={[{ label: "Disconnect", onClick: disconnect }]}
-          />
-        );
-      }
+      // if (address) {
+      //   return (
+      //     <MenuDropdown
+      //       label={renderLabel()}
+      //       options={[{ label: "Disconnect", onClick: disconnect }]}
+      //     />
+      //   );
+      // }
   
       return (
         <Button
