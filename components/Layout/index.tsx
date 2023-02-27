@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import { Button, MenuDropdown, WalletOptionsModal } from "..";
 import { useAccount, useDisconnect, useEnsName, useEnsAvatar } from "wagmi";
+import { HydrationProvider, Server, Client } from "react-hydration-provider";
 
 interface Props {
     children: ReactNode;
@@ -62,16 +63,27 @@ export default function Layout(props: Props) {
       );
     };
   
-    const renderButton = () => {
-      // if (address) {
-      //   return (
-      //     <MenuDropdown
-      //       label={renderLabel()}
-      //       options={[{ label: "Disconnect", onClick: disconnect }]}
-      //     />
-      //   );
-      // }
+    const renderButtonOnClient = () => {
+      if (address) {
+        return (
+          <MenuDropdown
+            label={renderLabel()}
+            options={[{ label: "Disconnect", onClick: disconnect }]}
+          />
+        );
+      }
   
+      return (
+        <Button
+          loading={loading || showWalletOptions}
+          onClick={() => setShowWalletOptions(true)}
+        >
+          Connect
+        </Button>
+      );
+    };
+
+    const renderButtonOnServer = () => {
       return (
         <Button
           loading={loading || showWalletOptions}
@@ -83,7 +95,7 @@ export default function Layout(props: Props) {
     };
   
     return (
-      <div>
+      <HydrationProvider>
         <Head>
           <title>NextJS wagmi</title>
           <meta name="description" content="NextJS and wagmi template" />
@@ -102,10 +114,15 @@ export default function Layout(props: Props) {
                 NextJS wagmi
               </h4>
             </div>
-            {renderButton()}
+            <Server>
+              {renderButtonOnServer()}
+            </Server>
+            <Client>
+              {renderButtonOnClient()}
+            </Client>
           </div>
         </div>
         {children}
-      </div>
+      </HydrationProvider>
     );
   }
