@@ -1,13 +1,12 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-
-import { WagmiConfig, createClient, configureChains} from 'wagmi'
+import { useEffect, useState } from 'react'
+import { WagmiConfig, createClient, configureChains } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { mainnet, goerli } from 'wagmi/chains'
 
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
-import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 
@@ -41,9 +40,12 @@ const client = createClient({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  
   return (
     <WagmiConfig client={client}>
-      <Component {...pageProps} />
+      {mounted && <Component {...pageProps} />}
     </WagmiConfig>
   )
 }
